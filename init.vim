@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 "set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -26,11 +26,17 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+"
+"
+"
 " Put your non-Plugin stuff after this line
 
+let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 syntax on
 set clipboard+=unnamedplus
+nmap ,ev :e ~/.config/nvim/init.vim<CR>
+nmap ,, :source ~/.config/nvim/init.vim<CR>
 
