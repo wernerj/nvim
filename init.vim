@@ -36,7 +36,12 @@ let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 syntax on
+set number
+set numberwidth=5
 set clipboard+=unnamedplus
+
+
+" Basic mappings
 nmap ,ev :e ~/.config/nvim/init.vim<CR>
 nmap ,, :source ~/.config/nvim/init.vim<CR>
-
+nmap ,bd :bd<CR>
