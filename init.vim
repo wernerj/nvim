@@ -11,6 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,8 +43,7 @@ set clipboard+=unnamedplus
 
 
 " Basic mappings
-nmap ,ev :e ~/.config/nvim/init.vim<CR>
-nmap ,, :source ~/.config/nvim/init.vim<CR>
+noremap , <Nop>
 nmap ,bd :bd<CR>
 
 " Copy and paste
@@ -99,3 +100,10 @@ nmap <space> zz20<C-E>
 
 map <PageUp> <C-b>
 map <PageDown> <C-f>
+map <F3> :nohls<CR>
+
+" Edit conf
+nmap ,ev :e ~/.config/nvim/init.vim<CR>
+nmap ,, :source ~/.config/nvim/init.vim<CR>
+nmap ,eaw :e ~/.config/awesome/rc.lua<CR>
+
