@@ -13,6 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tComment'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,24 +32,21 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:gruvbox_bold=1
-let g:gruvbox_italic=1
-
 let g:airline_powerline_fonts = 1
 
 colorscheme gruvbox
 set background=dark
+
+" Basic mappings
 syntax on
 set number
 set numberwidth=5
-set clipboard+=unnamedplus
-
-
-" Basic mappings
+set colorcolumn=140
 noremap , <Nop>
 nmap ,bd :bd<CR>
 
 " Copy and paste
+set clipboard+=unnamedplus
 nmap ,y "+y
 nmap ,p "+p
 
@@ -56,8 +54,6 @@ nmap ,p "+p
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev B b
-
-set colorcolumn=140
 
 " Always display filename
 set modeline
@@ -102,7 +98,7 @@ nmap <space> zz20<C-E>
 
 map <PageUp> <C-b>
 map <PageDown> <C-f>
-map <F3> :nohls<CR>
+map <F3> :set hls!<CR>
 
 " Edit conf
 nmap ,ev :e ~/.config/nvim/init.vim<CR>
