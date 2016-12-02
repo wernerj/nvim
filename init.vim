@@ -36,6 +36,7 @@ let g:airline_powerline_fonts = 1
 
 colorscheme gruvbox
 set background=dark
+" set highlight-ctermbg=none
 
 " Basic mappings
 syntax on
@@ -104,4 +105,7 @@ map <F3> :set hls!<CR>
 nmap ,ev :e ~/.config/nvim/init.vim<CR>
 nmap ,, :source ~/.config/nvim/init.vim<CR>
 nmap ,eaw :e ~/.config/awesome/rc.lua<CR>
+nmap ,eal :e ~/etc/dotfiles/bash/aliases<CR>
 
+" Transparent background
+hi normal ctermbg=none
