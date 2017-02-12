@@ -9,8 +9,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
+Plugin 'herrbischoff/cobalt2.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tComment'
@@ -109,4 +111,4 @@ nmap ,eaw :e ~/.config/awesome/rc.lua<CR>
 nmap ,eal :e ~/etc/dotfiles/bash/aliases<CR>
 
 " Transparent background
-hi normal ctermbg=none
+" hi normal ctermbg=none
