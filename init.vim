@@ -12,6 +12,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -124,7 +125,6 @@ nmap <leader>ee  :e!<CR>
 
 " Transparent background
 " hi normal ctermbg=none
-        
 "
 " Escape insert mode
 imap jk <esc>
