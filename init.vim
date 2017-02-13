@@ -22,10 +22,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'herrbischoff/cobalt2.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'tComment'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-" Plugin 'FelikZ/ctrlp-py-matcher'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
