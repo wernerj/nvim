@@ -17,12 +17,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-commentary'
 Plugin 'morhetz/gruvbox'
 Plugin 'herrbischoff/cobalt2.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tComment'
+" Plugin 'tComment'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 " Plugin 'FelikZ/ctrlp-py-matcher'
 
 " All of your Plugins must be added before the following line
@@ -136,3 +138,7 @@ autocmd Filetype help nmap <buffer> o <C-w>o
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
