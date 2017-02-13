@@ -1,6 +1,9 @@
 set nocompatible
 filetype off
 
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
@@ -10,11 +13,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
 Plugin 'morhetz/gruvbox'
+Plugin 'herrbischoff/cobalt2.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tComment'
-Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'FelikZ/ctrlp-py-matcher'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,30 +40,34 @@ filetype plugin indent on    " required
 "
 " Put your non-Plugin stuff after this line
 
+let mapleader = ","
+noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
 colorscheme gruvbox
 set background=dark
-" set highlight-ctermbg=none
+"set highlight-ctermbg=none
 
 " Basic mappings
+set backspace=2
 syntax on
 set number
 set numberwidth=5
 set colorcolumn=140
-noremap , <Nop>
-nmap ,bd :bd<CR>
+nmap <leader>bd :bd<CR>
 
 " Copy and paste
-set clipboard+=unnamedplus
-nmap ,y "+y
-nmap ,p "+p
+set clipboard=unnamedplus
+nmap <leader>y "+y
+nmap <leader>p "+p
+nmap <leader>co ggVG"+y
 
 " Typos correction
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev B b
+command! W w
+command! Q q
+command! B b
+cnorea   X x
 
 " Always display filename
 set modeline
@@ -103,10 +115,24 @@ map <PageDown> <C-f>
 map <F3> :set hls!<CR>
 
 " Edit conf
-nmap ,ev :e ~/.config/nvim/init.vim<CR>
-nmap ,, :source ~/.config/nvim/init.vim<CR>
-nmap ,eaw :e ~/.config/awesome/rc.lua<CR>
-nmap ,eal :e ~/etc/dotfiles/bash/aliases<CR>
+nmap <leader>ev :tabe ~/.config/nvim/init.vim<CR>
+nmap <leader>, :source ~/.config/nvim/init.vim<CR>
+nmap <leader>eaw :e ~/.config/awesome/rc.lua<CR>
+nmap <leader>eal :e ~/etc/dotfiles/bash/aliases<CR>
+nmap <leader>ee  :e!<CR>
+
 
 " Transparent background
-hi normal ctermbg=none
+" hi normal ctermbg=none
+        
+"
+" Escape insert mode
+imap jk <esc>
+imap kj <esc>
+
+autocmd Filetype help nmap <buffer> q :bd<CR>
+autocmd Filetype help nmap <buffer> o <C-w>o
+
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
