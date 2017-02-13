@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-commentary'
 Plugin 'morhetz/gruvbox'
 Plugin 'herrbischoff/cobalt2.vim'
@@ -114,6 +115,8 @@ nmap <space> zz20<C-E>
 map <PageUp> <C-b>
 map <PageDown> <C-f>
 map <F3> :set hls!<CR>
+imap <C-s> <esc>:w<CR>
+
 
 " Edit conf
 nmap <leader>ev :tabe ~/.config/nvim/init.vim<CR>
@@ -134,9 +137,11 @@ autocmd Filetype help nmap <buffer> q :bd<CR>
 autocmd Filetype help nmap <buffer> o <C-w>o
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 let g:ctrlp_use_caching = 0
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+nnoremap \ :Ack<space>
