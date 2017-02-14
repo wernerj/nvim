@@ -12,20 +12,29 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
+" tpope is god
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+" themes
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" file navigation
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+" code structure
 Plugin 'mattn/emmet-vim'
+Plugin 'ervandew/supertab'
+Plugin 'kana/vim-textobj-user'
+" ruby specific
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,6 +52,7 @@ filetype plugin indent on    " required
 "
 " Put your non-Plugin stuff after this line
 
+runtime macros/matchit.vim
 let mapleader = ","
 noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
