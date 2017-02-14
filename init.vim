@@ -1,9 +1,6 @@
 set nocompatible
 filetype off
 
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,6 +17,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-bundler'
 " themes
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
@@ -40,7 +38,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -52,6 +50,8 @@ filetype plugin indent on    " required
 "
 " Put your non-Plugin stuff after this line
 
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 runtime macros/matchit.vim
 let mapleader = ","
 noremap , <Nop>
@@ -106,8 +106,8 @@ nmap ,j <C-W>j
 
 " Set filetype stuff to on
 filetype on
-filetype indent on
-filetype plugin on
+" filetype indent on
+" filetype plugin on
 
 " Tabstops
 set softtabstop=2
