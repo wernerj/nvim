@@ -20,11 +20,12 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-commentary'
 Plugin 'morhetz/gruvbox'
-Plugin 'herrbischoff/cobalt2.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,9 +48,10 @@ noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
-colorscheme gruvbox
+colorscheme solarized
 set background=dark
-"set highlight-ctermbg=none
+" let g:solarized_termcolors=256
+" set highlight-ctermbg=none
 
 " Basic mappings
 set backspace=2
@@ -115,13 +117,13 @@ nmap <space> zz20<C-E>
 map <PageUp> <C-b>
 map <PageDown> <C-f>
 map <F3> :set hls!<CR>
-imap <C-s> <esc>:w<CR>
+map <F4> :b#<CR>
+" imap <C-s> <esc>:w<CR>
 
 
 " Edit conf
 nmap <leader>ev :tabe ~/.config/nvim/init.vim<CR>
 nmap <leader>, :source ~/.config/nvim/init.vim<CR>
-nmap <leader>eaw :e ~/.config/awesome/rc.lua<CR>
 nmap <leader>eal :e ~/etc/dotfiles/bash/aliases<CR>
 nmap <leader>ee  :e!<CR>
 
@@ -135,6 +137,7 @@ imap kj <esc>
 
 autocmd Filetype help nmap <buffer> q :bd<CR>
 autocmd Filetype help nmap <buffer> o <C-w>o
+autocmd Filetype eruby imap <buffer> <C-tab> <C-y>,
 
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 " let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
@@ -145,3 +148,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 nnoremap \ :Ack<space>
+      
+" maps to option-o, enter a line above the current line
+imap ø <ESC>^O
