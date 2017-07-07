@@ -1,80 +1,78 @@
 set nocompatible
 filetype off
 
-"set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" To install minpac:
+" mkdir -p ~/.config/nvim/pack/minpac/opt
+" cd ~/.config/nvim/pack/minpac/opt
+" git clone https://github.com/k-takata/minpac.git
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+packadd minpac
+call minpac#init()
+
+" Ii0dtPct'call minpac#add(A)0j
+
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+" register minpac so it can be updated
+call minpac#add('k-takata/minpac')
+
 " tpope is god
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/rbenv-ctags'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-liquid'
-" themes
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" file navigation
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-" code structure
-Plugin 'mattn/emmet-vim'
-" Plugin 'ervandew/supertab'
-Plugin 'kana/vim-textobj-user'
-" ruby specific
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'ecomba/vim-ruby-refactoring'
-" misc
-Plugin 'loremipsum'
-Plugin 'othree/eregex.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'roman/golden-ratio'
-" snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'"
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'elmcast/elm-vim'
-" css
-" Plugin 'skammer/vim-css-color'
-"
-" Plugin 'camthompson/vim-ember'
-Plugin 'AndrewRadev/ember_tools.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-" Typescript
-Plugin 'leafgarland/typescript-vim'
-Plugin 'HerringtonDarkholme/yats.vim'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-rails')
+call minpac#add('tpope/vim-vinegar')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-endwise')
+call minpac#add('tpope/vim-bundler')
+call minpac#add('tpope/vim-rake')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/rbenv-ctags')
+call minpac#add('tpope/vim-haml')
+call minpac#add('tpope/vim-liquid')
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" themes
+call minpac#add('morhetz/gruvbox')
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+" file navigation
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('mileszs/ack.vim')
+" code structure
+call minpac#add('mattn/emmet-vim')
+" Plugin 'ervandew/supertab'
+call minpac#add('kana/vim-textobj-user')
+" ruby specific
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('nelstrom/vim-textobj-rubyblock')
+call minpac#add('ecomba/vim-ruby-refactoring')
+" misc
+" call minpac#add('loremipsum')
+call minpac#add('othree/eregex.vim')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('roman/golden-ratio')
+" snippets
+call minpac#add('MarcWeber/vim-addon-mw-utils')
+call minpac#add('tomtom/tlib_vim')
+call minpac#add('garbas/vim-snipmate')
+call minpac#add('honza/vim-snippets')
+call minpac#add('FelikZ/ctrlp-py-matcher')
+call minpac#add('elmcast/elm-vim')
+" css
+call minpac#add('skammer/vim-css-color')
+
+call minpac#add('camthompson/vim-ember')
+call minpac#add('AndrewRadev/ember_tools.vim')
+call minpac#add('mustache/vim-mustache-handlebars')
+" Typescript
+call minpac#add('leafgarland/typescript-vim')
+call minpac#add('HerringtonDarkholme/yats.vim')
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
+" " To ignore plugin indent changes, instead use:
+" " filetype plugin on
+" "
 " Put your non-Plugin stuff after this line
 
 let g:python_host_prog = '/usr/local/bin/python'
