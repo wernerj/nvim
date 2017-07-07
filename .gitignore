@@ -2,4 +2,4 @@
 .netrwhist
 *.swp
 bundle
-bindle/Vundle.vim
+pack
