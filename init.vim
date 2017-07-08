@@ -32,7 +32,7 @@ call minpac#add('tpope/vim-haml')
 call minpac#add('tpope/vim-liquid')
 
 " themes
-call minpac#add('morhetz/gruvbox')
+call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 call minpac#add('lifepillar/vim-solarized8', {'type': 'opt'})
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
@@ -48,7 +48,6 @@ call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('nelstrom/vim-textobj-rubyblock')
 call minpac#add('ecomba/vim-ruby-refactoring')
 " misc
-" call minpac#add('loremipsum')
 call minpac#add('othree/eregex.vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('roman/golden-ratio')
@@ -61,11 +60,11 @@ call minpac#add('honza/vim-snippets')
 call minpac#add('FelikZ/ctrlp-py-matcher')
 call minpac#add('elmcast/elm-vim')
 " css
-call minpac#add('skammer/vim-css-color')
+call minpac#add('skammer/vim-css-color', {'type': 'opt'})
 
 call minpac#add('camthompson/vim-ember')
 call minpac#add('AndrewRadev/ember_tools.vim')
-call minpac#add('mustache/vim-mustache-handlebars')
+call minpac#add('mustache/vim-mustache-handlebars', {'type': 'opt'})
 " Typescript
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
@@ -84,7 +83,8 @@ noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
-colorscheme solarized8_dark_low
+colorscheme solarized8_dark_high
+set background=dark
 
 " Basic settings
 syntax on
@@ -277,3 +277,13 @@ set inccommand=split
 "
 " Highlight yank
 let g:highlightedyank_highlight_duration = 400
+
+" Escape terminal mode
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <A-[> <C-\><C-n>
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-l> <C-\><C-n><C-w>l
+  tnoremap <A-h> <C-\><C-n><C-w>h
+endif
