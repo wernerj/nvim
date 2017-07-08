@@ -33,7 +33,7 @@ call minpac#add('tpope/vim-liquid')
 
 " themes
 call minpac#add('morhetz/gruvbox')
-call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('lifepillar/vim-solarized8', {'type': 'opt'})
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 " file navigation
@@ -52,6 +52,7 @@ call minpac#add('ecomba/vim-ruby-refactoring')
 call minpac#add('othree/eregex.vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('roman/golden-ratio')
+call minpac#add('machakann/vim-highlightedyank')
 " snippets
 call minpac#add('MarcWeber/vim-addon-mw-utils')
 call minpac#add('tomtom/tlib_vim')
@@ -83,12 +84,7 @@ noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
-colorscheme solarized
-set background=dark
-" set background=light
-
-" let g:solarized_termcolors=256
-" set highlight-ctermbg=none
+colorscheme solarized8_dark_low
 
 " Basic settings
 syntax on
@@ -276,3 +272,8 @@ set ruler
 set splitright
 set diffopt+=vertical
 " set splitvertical
+" Highlight pattern replace
+set inccommand=split
+"
+" Highlight yank
+let g:highlightedyank_highlight_duration = 400
