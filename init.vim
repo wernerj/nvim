@@ -286,4 +286,10 @@ if has('nvim')
   tnoremap <A-j> <C-\><C-n><C-w>j
   tnoremap <A-l> <C-\><C-n><C-w>l
   tnoremap <A-h> <C-\><C-n><C-w>h
+  nnoremap <A-h> <C-w>h
+  nnoremap <A-l> <C-w>l
+  nnoremap <A-k> <C-w>k
+  nnoremap <A-j> <C-w>j
 endif
+
+command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
