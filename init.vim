@@ -280,6 +280,7 @@ let g:highlightedyank_highlight_duration = 400
 
 " Escape terminal mode
 if has('nvim')
+  tnoremap <expr> <A-r> '<C-\><C-n>"'.nr2char(getchar()).'pi'
   tnoremap <Esc> <C-\><C-n>
   tnoremap <A-[> <C-\><C-n>
   tnoremap <A-k> <C-\><C-n><C-w>k
@@ -290,6 +291,7 @@ if has('nvim')
   nnoremap <A-l> <C-w>l
   nnoremap <A-k> <C-w>k
   nnoremap <A-j> <C-w>j
+  nnoremap <A-t> :split <bar> terminal<CR>
 endif
 
 command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
