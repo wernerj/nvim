@@ -298,3 +298,6 @@ endif
 
 command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
 command! RailsConsole T rails console
+nnoremap <leader>tn :TestNearest<cr>
+nnoremap <leader>tl :TestLast<cr>
+
