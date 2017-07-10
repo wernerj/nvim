@@ -9,8 +9,6 @@ filetype off
 packadd minpac
 call minpac#init()
 
-" Ii0dtPct'call minpac#add(A)0j
-
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 " register minpac so it can be updated
@@ -43,6 +41,7 @@ call minpac#add('mileszs/ack.vim')
 call minpac#add('mattn/emmet-vim')
 " Plugin 'ervandew/supertab'
 call minpac#add('kana/vim-textobj-user')
+call minpac#add('kana/vim-textobj-entire')
 " ruby specific
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('nelstrom/vim-textobj-rubyblock')
@@ -68,6 +67,8 @@ call minpac#add('mustache/vim-mustache-handlebars', {'type': 'opt'})
 " Typescript
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('kassio/neoterm')
+call minpac#add('janko-m/vim-test')
 
 filetype plugin indent on    " required
 " " To ignore plugin indent changes, instead use:
@@ -295,3 +296,4 @@ if has('nvim')
 endif
 
 command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
+command! RailsConsole T rails console
