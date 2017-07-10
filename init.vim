@@ -34,6 +34,7 @@ call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 call minpac#add('lifepillar/vim-solarized8', {'type': 'opt'})
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('blueyed/vim-diminactive')
 " file navigation
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('mileszs/ack.vim')
