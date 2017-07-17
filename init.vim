@@ -16,6 +16,7 @@ call minpac#add('k-takata/minpac')
 
 " tpope is god
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-rails')
@@ -85,8 +86,9 @@ noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
+" colorscheme solarized8_light_high
 colorscheme solarized8_dark_high
-set background=dark
+" set background=dark
 
 " Basic settings
 syntax on
@@ -160,14 +162,11 @@ nmap <TAB> >>
 nmap <S-TAB> <<
 
 " Scroll current line to the first quarter of the screen
-nmap <space> zz20<C-E>
+nmap g<space> zz10<C-E>
 
 map <PageUp> <C-b>
 map <PageDown> <C-f>
 map <F3> :set hls!<CR>
-map <F4> :b#<CR>
-map <F5> :bp<CR>
-map <F6> :bn<CR>
 
 " Edit conf
 nmap <leader>ev :tabe ~/.config/nvim/init.vim<CR>
@@ -298,6 +297,11 @@ endif
 
 command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
 command! RailsConsole T rails console
+command! RailsMigrate T rails db:migrate
 nnoremap <leader>tn :TestNearest<cr>
 nnoremap <leader>tl :TestLast<cr>
+nnoremap <leader>tf :TestFile<cr>
 
+" switch between open buffers
+nnoremap <leader>l :ls<cr>:b<space>
+nnoremap gb :ls<cr>:b<space>
