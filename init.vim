@@ -16,6 +16,7 @@ call minpac#add('k-takata/minpac')
 
 " tpope is god
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tommcdo/vim-fubitive')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
@@ -31,16 +32,16 @@ call minpac#add('tpope/vim-haml')
 call minpac#add('tpope/vim-liquid')
 
 " themes
-call minpac#add('morhetz/gruvbox', {'type': 'opt'})
-call minpac#add('lifepillar/vim-solarized8', {'type': 'opt'})
+" call minpac#add('morhetz/gruvbox', {'type': 'opt'})
+call minpac#add('altercation/vim-colors-solarized', {'type': 'opt'})
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('blueyed/vim-diminactive')
+" call minpac#add('blueyed/vim-diminactive')
 " file navigation
-call minpac#add('ctrlpvim/ctrlp.vim')
+" call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('mileszs/ack.vim')
 " code structure
-call minpac#add('mattn/emmet-vim')
+" call minpac#add('mattn/emmet-vim')
 " Plugin 'ervandew/supertab'
 call minpac#add('kana/vim-textobj-user')
 call minpac#add('kana/vim-textobj-entire')
@@ -50,27 +51,27 @@ call minpac#add('nelstrom/vim-textobj-rubyblock')
 call minpac#add('ecomba/vim-ruby-refactoring')
 " misc
 call minpac#add('othree/eregex.vim')
-call minpac#add('pangloss/vim-javascript')
+" call minpac#add('pangloss/vim-javascript')
 call minpac#add('roman/golden-ratio')
 call minpac#add('machakann/vim-highlightedyank')
 " snippets
-call minpac#add('MarcWeber/vim-addon-mw-utils')
-call minpac#add('tomtom/tlib_vim')
-call minpac#add('garbas/vim-snipmate')
-call minpac#add('honza/vim-snippets')
+" call minpac#add('MarcWeber/vim-addon-mw-utils')
+" call minpac#add('tomtom/tlib_vim')
+" call minpac#add('garbas/vim-snipmate')
+" call minpac#add('honza/vim-snippets')
 call minpac#add('FelikZ/ctrlp-py-matcher')
-call minpac#add('elmcast/elm-vim')
+" call minpac#add('elmcast/elm-vim')
 " css
-call minpac#add('skammer/vim-css-color', {'type': 'opt'})
-
-call minpac#add('camthompson/vim-ember')
-call minpac#add('AndrewRadev/ember_tools.vim')
+" call minpac#add('skammer/vim-css-color', {'type': 'opt'})
 call minpac#add('mustache/vim-mustache-handlebars', {'type': 'opt'})
-" Typescript
-call minpac#add('leafgarland/typescript-vim')
-call minpac#add('HerringtonDarkholme/yats.vim')
 call minpac#add('kassio/neoterm')
 call minpac#add('janko-m/vim-test')
+"  Crystal
+call minpac#add('rhysd/vim-crystal')
+" Golang
+call minpac#add('fatih/vim-go')
+call minpac#add('aserebryakov/vim-todo-lists')
+let g:VimTodoListsMoveItems = 0
 
 filetype plugin indent on    " required
 " " To ignore plugin indent changes, instead use:
@@ -78,7 +79,7 @@ filetype plugin indent on    " required
 " "
 " Put your non-Plugin stuff after this line
 
-let g:python_host_prog = '/usr/local/bin/python'
+let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 runtime macros/matchit.vim
 let mapleader = ","
@@ -86,9 +87,10 @@ noremap , <Nop>
 let NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:airline_powerline_fonts = 1
 
-" colorscheme solarized8_light_high
-colorscheme solarized8_dark_high
-" set background=dark
+colorscheme solarized
+set background=dark
+" Transparent background
+" hi normal ctermbg=none
 
 " Basic settings
 syntax on
@@ -99,12 +101,13 @@ set smartcase
 set number
 set relativenumber
 set numberwidth=5
-set colorcolumn=140
+set colorcolumn=120
 set splitbelow
 set splitright
 
 
-nmap <leader>ct :!ctags -R .<CR>
+" nmap <leader>ct :!ctags -R .<CR>
+nmap <leader>ct :Ctags<CR>
 nmap <leader>pl :PluginInstall<CR>
 
 " Copy and paste
@@ -142,7 +145,6 @@ nmap <leader>j <C-W>j
 
 nmap <leader>w :bd<CR>
 nmap <leader>s :w<CR>
-nmap <leader>q :q<CR>
 
 " Set filetype stuff to on
 filetype on
@@ -162,11 +164,13 @@ nmap <TAB> >>
 nmap <S-TAB> <<
 
 " Scroll current line to the first quarter of the screen
-nmap g<space> zz10<C-E>
+nmap g<space> zt3k3j
+" nmap g<space> zz10<C-E>
 
 map <PageUp> <C-b>
 map <PageDown> <C-f>
 map <F3> :set hls!<CR>
+map <F4> :b#<cr>
 
 " Edit conf
 nmap <leader>ev :tabe ~/.config/nvim/init.vim<CR>
@@ -175,8 +179,6 @@ nmap <leader>eal :e ~/etc/dotfiles/bash/aliases<CR>
 nmap <leader>ee  :e!<CR>
 nmap <leader>o :e <C-R>=expand("%:p:h") . '/'<CR>
 
-" Transparent background
-" hi normal ctermbg=none
 "
 " Escape insert mode
 imap jk <esc>
@@ -190,6 +192,7 @@ autocmd Filetype help nmap <buffer> u <C-u>
 autocmd BufWritePre *.elm ElmFormat
 
 inoremap {<CR> {<CR>}<esc>ko
+inoremap (<CR> (<CR>)<esc>ko
 
 " ctrlp-py
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
@@ -201,6 +204,7 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 "   let g:ctrlp_use_caching = 0
 let g:ackprg = 'ag --vimgrep'
 " endif
+let g:ctrlp_max_files=0
 
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
@@ -224,9 +228,8 @@ nmap <leader>x :exec getline('.')<CR>
 
 
 " ignore site directory in ctrlp
-" let g:ctrlp_custom_ignore = 'node_modules'
-
-let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.(_site|node_modules).*$' }
+let g:ctrlp_custom_ignore = 'node_modules\|_site'
+" let g:ctrlp_custom_ignore = { 'dir':  '\v[\/]\.(_site\|node_modules).*$' }
 
 " identifiers include dashes
 set iskeyword+=\-
@@ -293,15 +296,52 @@ if has('nvim')
   nnoremap <A-k> <C-w>k
   nnoremap <A-j> <C-w>j
   nnoremap <A-t> :split <bar> terminal<CR>
+
+  command! RailsConsole T rails console
+  command! RailsMigrate T rails db:migrate
+  nnoremap <leader>tn :TestNearest<cr>
+  nnoremap <leader>tl :TestLast<cr>
+  nnoremap <leader>tf :TestFile<cr>
+
+  nnoremap <leader>gp :T gp<cr><C-w>ji
+
 endif
 
-command! HlidackyServer cd ~/Developer/primehammer/hlidacky | terminal foreman start -f Procfile-dev
-command! RailsConsole T rails console
-command! RailsMigrate T rails db:migrate
-nnoremap <leader>tn :TestNearest<cr>
-nnoremap <leader>tl :TestLast<cr>
-nnoremap <leader>tf :TestFile<cr>
-
 " switch between open buffers
-nnoremap <leader>l :ls<cr>:b<space>
 nnoremap gb :ls<cr>:b<space>
+
+" Visual @ - https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" Emmet jsx
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
+nnoremap n nzz " show the next result at the center of the screen
+nnoremap N Nzz " show the next result at the center of the screen
+
+" My help
+nnoremap <leader>mh :h myhelp<cr>
+nnoremap <leader>eh :e ~/.config/nvim/pack/minpac/start/myhelp/doc/myhelp.txt<cr>
+
+" Enter binding.pry
+nnoremap <leader>bp Obinding.pry<esc>
+
+" Format Json
+com! FormatJSON %!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=4)"
+
+" JazzEdge
+nnoremap ,/ 0/540pnnbbbbbbbbyi"op:s/\\//g<cr>y$
+nnoremap ,\ 0/360pnnnnbbbbbbbbyi"op:s/\\//g<cr>y$
+nmap <leader>d :%d<cr>
+nnoremap ,p op
+nmap <leader>to :sp ~/cmg.todo.md<cr>
+nmap <leader>ta :vsp ~/cmg.archived.todo.md<cr>
